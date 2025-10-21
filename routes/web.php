@@ -67,3 +67,5 @@ Route::post('/home/post', function () {
 Route::get('/auth/register', [AuthController::class, 'showRegisterForm'])->name('register.show');
 Route::post('/auth/register', [AuthController::class, 'register'])->name('register.submit');
 Route::get('/redirect/{tujuan}', [HomeController::class, 'redirectTo']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
