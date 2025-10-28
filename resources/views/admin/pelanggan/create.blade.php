@@ -381,6 +381,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
                     </ol>
                 </nav>
+
                 <h2 class="h4">Data Pelanggan</h2>
                 <p class="mb-0">List Seluruh Data Pelanggan</p>
             </div>
@@ -399,6 +400,15 @@
 
         <div class="card card-body border-0 shadow mb-4">
             <h2 class="h5 mb-4">General information</h2>
+            @if (count($errors) > 0)
+                <div class="row">
+                    <div class="col-md-12">
+                        @foreach ($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
             <form action="{{ route('pelanggan.store') }}" method="POST">
                 @csrf
                 <div class="row">
@@ -407,6 +417,7 @@
                             <label for="first_name">First Name</label>
                             <input class="form-control" name="first_name" id="first_name" type="text"
                                 placeholder="Enter your first name" required>
+
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -414,6 +425,7 @@
                             <label for="last_name">Last Name</label>
                             <input class="form-control" name="last_name" id="last_name" type="text"
                                 placeholder="Also your last name" required>
+
                         </div>
                     </div>
                 </div>
@@ -429,32 +441,36 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </span>
-                            <input data-datepicker="" class="form-control" name="birthday" id="birthday" type="text"
-                                placeholder="dd/mm/yyyy" required>
+                            <input data-datepicker="" class="form-control" name="birthday" id="birthday"
+                                type="text" placeholder="dd/mm/yyyy" required>
+
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="gender">Gender</label>
-                        <select class="form-select mb-0" id="gender" aria-label="Gender select example">
+                        <select class="form-select mb-0" id="gender" aria-label="Gender select example" name="gender">
                             <option selected>Gender</option>
-                            <option value="1">Female</option>
-                            <option value="2">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
                         </select>
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input class="form-control" name="email" id="email" type="email" placeholder="name@company.com"
-                                required>
+                            <input class="form-control" name="email" id="email" type="email"
+                                placeholder="name@company.com" required>
+
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input class="form-control" name="phone" id="phone" type="number" placeholder="+12-345 678 910"
-                                required>
+                            <input class="form-control" name="phone" id="phone" type="number"
+                                placeholder="+12-345 678 910" required>
+
                         </div>
                     </div>
                 </div>
