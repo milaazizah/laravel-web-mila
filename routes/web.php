@@ -9,6 +9,9 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\PromoController;
+use App\Http\Controllers\KategoriController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -87,3 +90,8 @@ Route::get('pelanggan/edit/{param1}', [PelangganController::class, 'edit'])->nam
 Route::post('pelanggan/update', [PelangganController::class, "update"])->name('pelanggan.update');
 
 Route::get('/pelanggan/destroy/{param1}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');
+
+//promo
+Route::resource('promo', PromoController::class);
+
+Route::resource('kategori', KategoriController::class);
