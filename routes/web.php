@@ -58,6 +58,10 @@ Route::get('/auth', [AuthController::class, 'index'])->name('auth.login');
 
 Route::post('/auth/login', [AuthController::class, 'index']);
 
+//lupa password
+Route::get('/auth/forgot', [AuthController::class, 'show_forgot_password'])->name('auth.forgot');
+Route::post('/auth/forgot', [AuthController::class, 'do_forgot_password'])->name('auth.do-forgot');
+
 
 Route::get('/go/{tujuan}', [HomeController::class, 'redirectTo'])->name('go');
 

@@ -50,4 +50,24 @@ class AuthController extends Controller
 
         return redirect()->route('auth.login')->with('success', 'Registrasi berhasil! Silahkan Login.');
     }
+    public function show_forgot_password(){
+    
+        return view('forgot_password');
+    }
+
+    public function do_forgot_password(Request $request){
+        $request->validate([
+        'email' => 'required|email'
+    ]);
+
+    $email = $request->email;
+
+    if (preg_match('/^[0-9]+@mahasiswa\.pcr\.ac\.id$/', $email)) {
+        return redirect()->route('auth.forgot')->with('success', 'Link reset password sudah dikirim ke ' . $email . '. Silakan akses dan ikuti langkah yang tersedia.');
+    } else {
+        return redirect()->route('auth.forgot')->with('error', 'Email yang dimasukkan tidak valid');
+    }
+        
+    
+    }
 }

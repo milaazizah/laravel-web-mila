@@ -113,6 +113,9 @@
 
                     </div>
                     <div class="card-footer">
+                        <p class="small-text"> <a href="auth/forgot">Lupa Password</a></p>
+                    </div>
+                    <div class="card-footer">
                         <p class="small-text">Don't have an account? <a href="/auth/register">Sign up</a></p>
                     </div>
                 </div>
